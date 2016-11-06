@@ -1,0 +1,467 @@
+ {% extends "team/base.html" %} {% block cv_pdf %}
+<a href="{{ profile.cv_pdf.url }}" class="btn btn-default btn-top-resume"><i class="fa fa-download"></i><span class="btn-hide-text">Download my resume</span></a>
+{%endblock %} {% block mail_button %}
+<a href="mailto:{{email.0.e_mail}}" class="btn btn-default btn-top-message"><i class="fa fa-envelope-o"></i><span class="btn-hide-text">Send me a message</span></a>
+{%endblock %} {% block avatar %}
+<img src="{{ profile.picture_cv.url }}" alt=""> {% endblock %} {% block last_name %}
+<h1 class="intro-title1">Hi, i'm <span class="color1 bold">{{profile.last_name}}</span></h1>
+{% endblock %} {% block job %}
+<h2 class="intro-title2">{{profile.owner_title}}<br> {{profile.company_title}} @{{profile.company_name}}</h2>
+{% endblock %} {% block job_description %}
+<p>I'm a <strong> {{profile.owner_title}} </strong>{{profile.owner_description}} </p>
+{% endblock %} {% block profile %}
+<div class="line row">
+	<!-- Margin Collums (necessary for the timeline effect) -->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<div class="col-md-2 timeline-progress hidden-sm hidden-xs full-height timeline-point "></div>
+	<!-- /Margin Collums -->
+	<!-- Item Content -->
+	<div class="col-md-8 content-wrap bg1">
+
+		<div class="line-content">
+			<!-- Subtitle -->
+			<h3 class="section-item-title-1">Full Name</h3>
+			<!-- /Subtitle -->
+			<!-- content -->
+			<p>{{profile.first_name}} {{profile.last_name}}</p>
+			<!-- /Content -->
+		</div>
+
+	</div>
+	<!-- /Item Content -->
+	<!-- Margin Collum-->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+</div>
+	<!-- /Margin Collum-->
+<!-- Margin Collums (necessary for the timeline effect) -->
+<div class="line row">
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<div class="col-md-2 timeline-progress hidden-sm hidden-xs full-height timeline-point "></div>
+	<!-- /Margin Collums -->
+	<!-- Item Content -->
+	<div class="col-md-8 content-wrap bg1">
+
+		<div class="line-content">
+			<!-- Subtitle -->
+			<h3 class="section-item-title-1">Born</h3>
+			<!-- /Subtitle -->
+			<!-- content -->
+			<p>{{profile.born_date}} {{profile.born_plase}}</p>
+			<!-- /Content -->
+		</div>
+
+	</div>
+	<!-- /Item Content -->
+	<!-- Margin Collum-->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+</div>
+	<!-- /Margin Collum-->
+	<!-- Margin Collums (necessary for the timeline effect) -->
+	<div class="line row">
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<div class="col-md-2 timeline-progress hidden-sm hidden-xs full-height timeline-point "></div>
+	<!-- /Margin Collums -->
+	<!-- Item Content -->
+	<div class="col-md-8 content-wrap bg1">
+
+		<div class="line-content">
+			<!-- Subtitle -->
+			<h3 class="section-item-title-1">Phone number</h3>
+			<!-- /Subtitle -->
+			<!-- content -->
+			<p>{% for objPhone in phone_number %} {{objPhone.phone_number}}
+				<br/> {% endfor %}</p>
+			<!-- /Content -->
+		</div>
+
+	</div>
+	<!-- /Item Content -->
+	<!-- Margin Collum-->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	</div>
+<!-- /Margin Collum-->
+<!-- Margin Collums (necessary for the timeline effect) -->
+<div class="line row">
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<div class="col-md-2 timeline-progress hidden-sm hidden-xs full-height timeline-point "></div>
+	<!-- /Margin Collums -->
+	<!-- Item Content -->
+	<div class="col-md-8 content-wrap bg1">
+
+		<div class="line-content">
+			<!-- Subtitle -->
+			<h3 class="section-item-title-1">E-mail</h3>
+			<!-- /Subtitle -->
+			<!-- content -->
+			{% for objEmail in email %}
+			<p>{{objEmail.e_mail}}</p>
+			{% endfor %}
+			<!-- /Content -->
+		</div>
+
+	</div>
+	<!-- /Item Content -->
+	<!-- Margin Collum-->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+</div>
+	<!-- /Margin Collum-->
+
+{% endblock %} {% block find_me %}
+<div class="line row">
+	<!-- Margin Collums (necessary for the timeline effect) -->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<div class="col-md-2 timeline-progress hidden-sm hidden-xs full-height timeline-point "></div>
+	<!-- Margin Collums (necessary for the timeline effect) -->
+	<!-- Item Content -->
+	<div class="col-md-8 content-wrap bg1">
+		<div class="line-content">
+			<!-- Subtitle -->
+			<h3 class="section-item-title-1">Find Me On</h3>
+			<!-- /Subtitle -->
+			<!-- content -->
+
+			{% if email.0 %}{% for objEmail in email %} {% if objEmail.active %}
+			<a href="mailto:{{objEmail.e_mail}}" class="btn btn-default"><i class="fa fa-mail-reply"></i></a>{% endif %}{% endfor %}{% endif %} {% if profile.facebook %}<a href="{{profile.facebook}}"
+				class="btn btn-default"><i class="fa fa-facebook"></i></a>{% endif %} {% if profile.twitter %}<a href="{{profile.twitter}}"
+				class="btn btn-default"><i class="fa fa-twitter"></i></a>{% endif %} {% if profile.linkedin %}<a href="{{profile.linkedin}}"
+				class="btn btn-default"><i class="fa fa-linkedin"></i></a>{% endif %} {% if profile.skype %}<a href="skype:{{profile.skype}}"
+				class="btn btn-default"><i class="fa fa-skype"></i></a>{% endif %} {% if profile.forsquare %}<a href="{{profile.forsquare}}"
+				class="btn btn-default"><i class="fa fa-foursquare"></i></a>{% endif %} {% if profile.instagram %}<a href="{{profile.instagram}}"
+				class="btn btn-default"><i class="fa fa-instagram"></i></a>{% endif %}
+
+			<!-- /Content -->
+		</div>
+	</div>
+	<!-- /Item Content -->
+	<!-- Margin Collum -->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<!-- /Margin Collum -->
+</div>
+{% endblock %} {% block education %}
+<div class="line row">
+	{% for objEducation in education %}
+	<!-- Margin Collums (necessary for the timeline effect) -->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<div class="col-md-2 timeline-progress hidden-sm hidden-xs full-height timeline-education "></div>
+	<!-- /Margin Collums -->
+	<!-- Item Content -->
+	<div class="col-md-8 content-wrap bg1">
+		<div class="line-content line-content-education">
+
+			<!-- Graduation title -->
+			<h3 class="section-item-title-1">{{objEducation.degree_name}}</h3>
+			<!-- /Graduation title -->
+			<!-- Graduation time -->
+			<h4 class="graduation-time"><i class="fa fa-university"></i> {{objEducation.institute_name}} - <span class="graduation-date">{{objEducation.date_of_graduation}}</span></h4>
+			<!-- /Graduation time -->
+			<!-- content -->
+			<div class="graduation-description">{{objEducation.graduation_type}}
+			</div>
+			<div class="graduation-description">{{objEducation.period_of_studies}}
+
+			</div>
+
+			<!-- /Content -->
+		</div>
+	</div>
+	<!-- /Item Content -->
+
+	<!-- Margin Collum -->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<!-- /Margin Collum -->
+	{% endfor %}
+</div>
+{% endblock %} {% block work_experience %}
+<div class="line row">
+	{% for objWorkExp in work_exp %}
+	<!-- Margin Collums (necessary for the timeline effect) -->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<div class="col-md-2 timeline-progress hidden-sm hidden-xs full-height timeline-work "></div>
+	<!-- /Margin Collums -->
+	<!-- Item Content -->
+	<div class="col-md-8 content-wrap bg1">
+
+		<div class="line-content line-content-education">
+			<!-- Work Place -->
+			<h3 class="section-item-title-1">{{objWorkExp.company_name}}</h3>
+			<!-- /work place -->
+			<!-- Graduation time -->
+			<h4 class="job"><i class="fa fa-flag"></i> {{objWorkExp.mission}} - <span class="job-date">{{objWorkExp.work_period}}</span></h4>
+			<!-- /Graduation time -->
+			<!-- content -->
+			<div class="job-description">
+
+				<p>{{objWorkExp.description01}}<br> {{objWorkExp.description02}}
+				</p>
+			</div>
+
+			<!-- /Content -->
+		</div>
+	</div>
+
+
+
+	<!-- /Item Content -->
+	<!-- Margin Collum-->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<!-- /Margin Collum-->
+	{% endfor %}
+</div>
+{% endblock %} {% block internship_training %}
+<div class="line row">
+	{% for objInternShip in internship %}
+	<!-- Margin Collums (necessary for the timeline effect) -->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<div class="col-md-2 timeline-progress hidden-sm hidden-xs full-height timeline-work "></div>
+	<!-- /Margin Collums -->
+	<!-- Item Content -->
+	<div class="col-md-8 content-wrap bg1">
+		<div class="line-content line-content-education">
+			<!-- Work Place -->
+			<h3 class="section-item-title-1">{{objInternShip.company_name}}</h3>
+			<!-- /work place -->
+			<!-- Graduation time -->
+			<h4 class="job"><i class="fa fa-flag"></i> {{objInternShip.mission}} - <span class="job-date">{{objInternShip.period}}</span></h4>
+			<!-- /Graduation time -->
+			<!-- content -->
+			<div class="job-description">
+
+				<p>{{objInternShip.description}}</p>
+			</div>
+			<!-- /Content -->
+		</div>
+	</div>
+	<!-- /Item Content -->
+	<!-- Margin Collum-->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<!-- /Margin Collum-->
+	{% endfor %}
+</div>
+{% endblock %} {% block projects %}
+<div class="line row">
+	{% for objProjects in projects %}
+	<!-- Margin Collums (necessary for the timeline effect) -->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<div class="col-md-2 timeline-progress hidden-sm hidden-xs full-height timeline-work "></div>
+	<!-- /Margin Collums -->
+	<!-- Item Content -->
+	<div class="col-md-8 content-wrap bg1">
+
+		<div class="line-content line-content-education">
+			<!-- Work Place -->
+			<h3 class="section-item-title-1">{{objProjects.project_name}}</h3>
+			<!-- /work place -->
+			<!-- Graduation time -->
+			<h4 class="job"><i class="fa fa-flag"></i> {{objProjects.project_type}} <span class="job-date">{{objProjects.project_period}} </span></h4>
+			<!-- /Graduation time -->
+			<!-- content -->
+			<div class="job-description">
+
+				<p>{{objProjects.used_technologies}} </p>
+			</div>
+			<!-- /Content -->
+		</div>
+
+	</div>
+	<!-- /Item Content -->
+	<!-- Margin Collum-->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<!-- /Margin Collum-->
+	{% endfor %}
+</div>
+{% endblock %} {% block social_life_expereience %}
+	{% for objSocialLife in social_experience %}
+<div class="line row">
+	<!-- Margin Collums (necessary for the timeline effect) -->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<div class="col-md-2 timeline-progress hidden-sm hidden-xs full-height timeline-work "></div>
+	<!-- /Margin Collums -->
+	<!-- Item Content -->
+	<div class="col-md-8 content-wrap bg1">
+
+		<div class="line-content line-content-education">
+			<!-- Work Place -->
+			<h3 class="section-item-title-1">{{objSocialLife.comunity_name}}</h3>
+			<!-- /work place -->
+			<!-- Graduation time -->
+			<h4 class="job"><i class="fa fa-flag"></i> {{objSocialLife.owner_title}} - <span class="job-date">{{objSocialLife.working_period}}</span></h4>
+			<!-- /Graduation time -->
+			<!-- content -->
+			<div class="job-description">
+				<p>{{objSocialLife.description}}</p>
+			</div>
+			<!-- /Content -->
+		</div>
+
+	</div>
+	<!-- /Item Content -->
+	<!-- Margin Collum-->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<!-- /Margin Collum-->
+</div>
+	{% endfor %}
+{% endblock %} {% block skills %}
+<div class="line row">
+	<!-- Margin Collums (necessary for the timeline effect) -->
+	{% for obj_title in skills_title %}
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<div class="col-md-2 timeline-progress hidden-sm hidden-xs full-height timeline-point "></div>
+	<!-- / Margin Collums -->
+	<!-- Item Content -->
+
+	<div class="col-md-8 content-wrap bg1">
+		<div class="line-content">
+			<!-- Subtitle -->
+
+			<h3 class="section-item-title-1">{{obj_title.skill_title}}
+			</h3>
+
+			<!-- /Subtitle -->
+			<!-- content -->
+
+			<ul class="skills-list">
+				<!-- item-list -->
+
+				{% for obj in skills %} {% if obj.skill_title_id == obj_title.id %}
+				<li>
+
+					<div class="progress">
+
+						<div class="progress-bar" role="progressbar" data-percent="{{obj.skill_percent}}%" style="width: {{obj.skill_percent}}%;">
+							<span class="sr-only">{{obj.skill_percent}}% Complete</span>
+						</div>
+						<span class="progress-type">{{obj.skill_name}}</span>
+						<span class="progress-completed">{{obj.skill_percent}}%</span>
+					</div>
+
+				</li>
+				{% endif %} {% endfor %}
+
+
+				<!-- /item list -->
+				<!-- item-list -->
+				<li>
+					<div class="progress">
+						<div class="progress-bar progress-bar-2" role="progressbar" data-percent="95%" style="width: 95%;">
+							<span class="sr-only">95% Complete</span>
+						</div>
+						<span class="progress-type">Leadership</span>
+						<span class="progress-completed">95%</span>
+					</div>
+				</li>
+				<!-- /item list -->
+				<!-- item-list -->
+				<li>
+					<div class="progress" title="Doing my best!">
+						<div class="progress-bar progress-bar-3" role="progressbar" data-percent="85%" style="width: 85%;">
+							<span class="sr-only">85% Complete</span>
+						</div>
+						<span class="progress-type">Comunication</span>
+						<span class="progress-completed">85%</span>
+					</div>
+				</li>
+				<!-- /item list -->
+				<!-- item-list -->
+				<li>
+					<div class="progress" title="Doing my best!">
+						<div class="progress-bar" role="progressbar" data-percent="80%" style="width: 80%;">
+							<span class="sr-only">80% Complete</span>
+						</div>
+						<span class="progress-type">Mentoring, coaching, and training</span>
+						<span class="progress-completed">80%</span>
+					</div>
+				</li>
+				<!-- /item list -->
+				<!-- item-list -->
+				<li>
+					<div class="progress" title="Doing my best!">
+						<div class="progress-bar progress-bar-2" role="progressbar" data-percent="90%" style="width: 90%;">
+							<span class="sr-only">90% Complete</span>
+						</div>
+						<span class="progress-type">self-governing</span>
+						<span class="progress-completed">90%</span>
+					</div>
+				</li>
+				<!-- /item list -->
+			</ul>
+			<!-- /Content -->
+		</div>
+	</div>
+
+	<!-- /Item Content -->
+	<!-- Margin Collum-->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<!-- /Margin Collum-->
+	{% endfor %}
+</div>
+{% endblock %} {% block recognition %}
+<div class="line row">
+	{% for objRecognition in recognitions %}
+	<!-- Margin Collums (necessary for the timeline effect) -->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<div class="col-md-2 timeline-progress hidden-sm hidden-xs full-height timeline-point "></div>
+	<!-- /Margin Collums -->
+	<!-- Item Content -->
+	<div class="col-md-8 content-wrap bg1">
+
+		<div class="line-content">
+			<!-- Subtitle -->
+			<h3 class="section-item-title-1">{{objRecognition.title}}</h3>
+			<!-- /Subtitle -->
+			<!-- content -->
+			<p>{{objRecognition.description}}</p>
+			<!-- /Content -->
+		</div>
+
+	</div>
+	<!-- /Item Content -->
+	<!-- Margin Collum-->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<!-- /Margin Collum-->
+	{% endfor %}
+</div>
+{% endblock %} {% block interest %}
+<div class="line row">
+	{% for objInterest in interests %}
+	<!-- Margin Collums (necessary for the timeline effect) -->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<div class="col-md-2 timeline-progress hidden-sm hidden-xs full-height timeline-point "></div>
+	<!-- /Margin Collums -->
+	<!-- Item Content -->
+	<div class="col-md-8 content-wrap bg1">
+
+		<div class="line-content">
+			<!-- Subtitle -->
+			<h3 class="section-item-title-1">{{objInterests.title}}</h3>
+			<!-- /Subtitle -->
+			<!-- content -->
+			<p>{{objInterests.description}}</p>
+			<!-- /Content -->
+		</div>
+
+	</div>
+	<!-- /Item Content -->
+	<!-- Margin Collum-->
+	<div class="col-md-1 bg1 timeline-space full-height hidden-sm hidden-xs"></div>
+	<!-- /Margin Collum-->
+	{% endfor %}
+</div>
+{% endblock %} {% block contact %}
+<div class="col-md-4 contact-infos">
+	{% if profile.adress %}
+	<h4 class="contact-subtitle-1">Address</h4>
+	<p>{{profile.adress}}</p>
+	{% endif %} {% if phone_number.0 %}
+	<h4 class="contact-subtitle-1">Phone</h4>
+	<p>
+		{% for objPhone in phone_number %} {{objPhone.phone_number}}
+		<br/> {% endfor %}
+	</p>
+
+	{% endif %} {% for objEmail in email %} {% if objEmail.active %}
+	<h4 class="contact-subtitle-1">Mail</h4>
+
+	<h5>{{objEmail.e_mail}}</h5>
+	{% endif %} {% endfor %}
+</div>
+{% endblock %}

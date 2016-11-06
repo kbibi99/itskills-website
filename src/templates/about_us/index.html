@@ -1,0 +1,50 @@
+{% extends "index.html" %}
+
+
+    {% block about_us_title %} {% for obj in object_list %}
+<div class="col-sm-6">
+	<div class="about-info wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+		<h2>About us</h2>
+
+		<p>{{obj.body_1}}</p>
+
+		<p>{{obj.body_1}}</p>
+	</div>
+</div>
+{% endfor %} {% endblock %}
+<div class="col-sm-6">
+	<div class="our-skills wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		{% block about_us %} {% for obj in object_list %}
+		<div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+			<p class="lead">User Experiances</p>
+
+			<div class="progress">
+				<div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar" aria-valuetransitiongoal="{{obj.user_experience}}">{{obj.user_experience}}%
+				</div>
+			</div>
+		</div>
+		<div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="400ms">
+			<p class="lead">Mobile development</p>
+
+			<div class="progress">
+				<div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar" aria-valuetransitiongoal="{{obj.mobile_development}}">{{obj.mobile_development}}%
+				</div>
+			</div>
+		</div>
+		<div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
+			<p class="lead">Training session</p>
+
+			<div class="progress">
+				<div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar" aria-valuetransitiongoal="{{obj.training_session}}">{{obj.training_session}}%
+				</div>
+			</div>
+		</div>
+		<div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+			<p class="lead">Fun</p>
+
+			<div class="progress">
+				<div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar" aria-valuetransitiongoal="{{obj.fun}}">{{obj.fun}}%
+				</div>
+			</div>
+		</div>
+		{% endfor %} {% endblock %}

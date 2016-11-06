@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% block services_title %}
+        <div class="heading wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <div class="row">
+                <div class="text-center col-sm-8 col-sm-offset-2">
+                    <h2>Our Services</h2>
+                    <p>developing, Consulting and Training Services that Maximize the Value of Your Investment</p>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+{% block services %}
+{% for obj in object_list %}
+<div class="col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+    <div class="service-icon">
+        <i class="fa {{obj.icon}}"></i>
+    </div>
+    <div class="service-info">
+        <h3>{{obj.title}}</h3>
+
+        <p>{{obj.body}}</p>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

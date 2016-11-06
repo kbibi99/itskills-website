@@ -1,0 +1,204 @@
+{% extends "index.html" %} {% load staticfiles %} {% block home %}
+<div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
+	<div class="carousel-inner">
+
+		{% for obj in home_list %}
+		<div class="item {% if obj.activity %} active {% endif %}" style="background-image: url({{ obj.background_img.url }})">
+			<div class="caption">
+				<h1 class="animated fadeInLeftBig">{{obj.title_1}} <span>{{obj.title_2}}</span></h1>
+
+				<p class="animated fadeInRightBig">{{obj.body}}</p>
+				<a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Start now</a>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	<a class="left-control" href="#home-slider" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+	<a class="right-control" href="#home-slider" data-slide="next"><i class="fa fa-angle-right"></i></a>
+
+	<a id="tohash" href="#services"><i class="fa fa-angle-down"></i></a>
+</div>
+{% endblock home %} {% block services_title %}
+<div class="heading wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+	<div class="row">
+		<div class="text-center col-sm-8 col-sm-offset-2">
+			<h2>Our Services</h2>
+			<p>developing, Consulting and Training Services that Maximize the Value of Your Investment</p>
+		</div>
+	</div>
+</div>
+{% endblock %} {% block services %} {% for obj in services_list %}
+<div class="col-sm-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+	<div class="service-icon">
+		<i class="fa {{obj.icon}}"></i>
+	</div>
+	<div class="service-info">
+		<h3>{{obj.title}}</h3>
+
+		<p>{{obj.body}}</p>
+	</div>
+</div>
+{% endfor %} {% endblock %} {% block about_us_title %} {% for obj in about_us_list %}
+<div class="col-sm-6">
+	<div class="about-info wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+		<h2>About us</h2>
+
+		<p>{{obj.body_1}}</p>
+
+		<p>{{obj.body_1}}</p>
+	</div>
+</div>
+{% endfor %} {% endblock %}
+<div class="col-sm-6">
+	<div class="our-skills wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+		{% block about_us %} {% for obj in about_us_list %}
+		<div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+			<p class="lead">User Experiances</p>
+
+			<div class="progress">
+				<div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar" aria-valuetransitiongoal="{{obj.user_experience}}">{{obj.user_experience}}%
+				</div>
+			</div>
+		</div>
+		<div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="400ms">
+			<p class="lead">Mobile development</p>
+
+			<div class="progress">
+				<div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar" aria-valuetransitiongoal="{{obj.mobile_development}}">{{obj.mobile_development}}%
+				</div>
+			</div>
+		</div>
+		<div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
+			<p class="lead">Training session</p>
+
+			<div class="progress">
+				<div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar" aria-valuetransitiongoal="{{obj.training_session}}">{{obj.training_session}}%
+				</div>
+			</div>
+		</div>
+		<div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+			<p class="lead">Fun</p>
+
+			<div class="progress">
+				<div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar" aria-valuetransitiongoal="{{obj.fun}}">{{obj.fun}}%
+				</div>
+			</div>
+		</div>
+		{% endfor %} {% endblock %} {% block profilio_title %} {% for obj in portfolio_title %}
+		<div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+			<h2>Our Portfolio</h2>
+
+			<p>{{obj.quote_text}}</p>
+		</div>
+		{% endfor %} {% endblock %} {% block portfolio %} {% for obj in portfolio_list %}
+		<div class="col-sm-3">
+			<div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="300ms">
+				<div class="folio-image">
+					<img class="img-responsive" src="{{ obj.picture.url }}" alt="">
+				</div>
+				<div class="overlay">
+					<div class="overlay-content">
+						<div class="overlay-text">
+							<div class="folio-info">
+								<h3>{{obj.title}}</h3>
+
+								<p>{{obj.description}}</p>
+							</div>
+							<div class="folio-overview">
+								<span class="folio-link"><a class="folio-read-more" href="#"
+                                                                data-single_url="portfolio-single.html"><i
+                                            class="fa fa-link"></i></a></span>
+								<span class="folio-expand"><a href="images/portfolio/portfolio-details.jpg"
+                                                                  data-lightbox="portfolio"><i
+                                            class="fa fa-search-plus"></i></a></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %} {% endblock %} {% block team_title %} {% for obj in team_title %}
+		<div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+			<h2>{{obj.team_title}}</h2>
+
+			<p>{{obj.team_description}}</p>
+		</div>
+		{% endfor %} {% endblock %} {% block team %} {% for obj in team_list %}
+		<div class="col-sm-3">
+			<div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="300ms">
+				<div class="member-image">
+					<img class="img-responsive" src="{{ obj.picture_index.url }}" alt="">
+				</div>
+				<div class="member-info">
+					<a href="{{ obj.get_absolute_url }}"> <h3>{{obj.last_name}} {{obj.first_name}}</h3></a>
+					<h4>{{obj.owner_title}}</h4>
+
+					<p>{{obj.company_title}}</p>
+				</div>
+				<div class="social-icons">
+					<ul>
+						<li><a class="facebook" target="_blank" href="https://www.facebook.com/adnen.hamdouni"><i class="fa fa-facebook"></i></a></li>
+						<li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a class="linkedin" target="_blank" href="https://tn.linkedin.com/in/adnenhamdouni"><i class="fa fa-linkedin"></i></a></li>
+						<li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+						<li><a class="rss" href="#"><i class="fa fa-rss"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		{% endfor %} {% endblock %} {% block it_comment %} {% for obj in comment_list %}
+		<div class="item {% if obj.activity %} active wow fadeIn{% endif %} " {% if obj.activity %} data-wow-duration="1000ms" data-wow-delay="300ms"
+			{% endif %}>
+			<p>{{obj.comment}}<a href="#"><span>{{obj.title}}</span>
+            </a></p>
+		</div>
+		{% endfor %} {% endblock %} {% block blog_post_title %}
+		<div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+			<h2>Blog Posts</h2>
+
+			{% comment %}
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+				ut enim ad minim veniam</p>{% endcomment %}
+		</div>
+		{% endblock %} {% block blog_post %} {% for obj in posts_list %}
+		<div class="col-sm-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="{{400}}ms">
+			{% if obj.image %}
+			<div class="post-thumb">
+				<a href="#"><img class="img-responsive" src="{{ obj.image.url }}" alt=""></a>
+
+				<!--<div class="post-meta">
+                    <span><i class="fa fa-comments-o"></i> 3 Comments</span>
+                    <span><i class="fa fa-heart"></i> 0 Likes</span>
+                </div>
+                <div class="post-icon">
+                    <i class="fa fa-pencil"></i>
+                </div>-->
+			</div>
+			{% endif %}
+
+
+			<div class="entry-header">
+				<h3><a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a></h3>
+				{% if obj.user.get_full_name %}
+				<p>Author: {{ obj.user.get_full_name }}</p>{% endif %}
+				<span class="date">{{ obj.publish }}</span>
+				<span class="cetagory">in <strong>Photography</strong></span>
+			</div>
+			{% comment %}
+			<div class="entry-content">
+				<p>{{ obj.content|linebreaks|truncatechars:120 }}</p>
+			</div>{% endcomment %}
+			<a href="{% url 'posts:post_create' %}">
+				<button type="button" class="btn btn-success">
+            <span class="glyphicon glyphicon-right"></span>&nbsp; Read This Post
+        </button>
+			</a>
+		</div>
+		{% endfor %}
+
+		<a href="{% url 'posts:post_create' %}">
+			<button type="button" class="btn btn-success">
+            <span class="glyphicon glyphicon-plus"></span>&nbsp; Add a Post
+        </button>
+		</a>
+		{% endblock %}

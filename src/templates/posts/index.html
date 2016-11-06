@@ -1,0 +1,57 @@
+{% extends "index.html" %}
+
+
+
+{% block blog_post_title %}
+    <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms"
+            data-wow-delay="300ms">
+        <h2>Blog Posts</h2>
+
+        {% comment %}<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+            et dolore magna aliqua ut enim ad minim veniam</p>{% endcomment %}
+    </div>
+    {% endblock %}
+{% block blog_post %}
+
+   
+
+    {% for obj in object_list %}
+        <div class="col-sm-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="{{400}}ms">
+            {% if obj.image %}
+            <div class="post-thumb">
+                <a href="#"><img class="img-responsive" src="{{ obj.image.url }}" alt=""></a>
+
+                <!--<div class="post-meta">
+                    <span><i class="fa fa-comments-o"></i> 3 Comments</span>
+                    <span><i class="fa fa-heart"></i> 0 Likes</span>
+                </div>
+                <div class="post-icon">
+                    <i class="fa fa-pencil"></i>
+                </div>-->
+            </div>
+            {% endif %}
+
+
+            <div class="entry-header">
+                <h3><a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a></h3>
+                {% if obj.user.get_full_name %}<p>Author: {{ obj.user.get_full_name }}</p>{% endif %}
+                <span class="date">{{ obj.publish }}</span>
+                <span class="cetagory">in <strong>Photography</strong></span>
+            </div>
+            {% comment %}<div class="entry-content">
+                <p>{{ obj.content|linebreaks|truncatechars:120 }}</p>
+            </div>{% endcomment %}
+       <a href="{% url 'posts:post_create' %}">
+        <button type="button" class="btn btn-success">
+            <span class="glyphicon glyphicon-right"></span>&nbsp; Read This Post
+        </button>
+    </a>
+        </div>
+    {% endfor %}
+
+    <a href="{% url 'posts:post_create' %}">
+        <button type="button" class="btn btn-success">
+            <span class="glyphicon glyphicon-plus"></span>&nbsp; Add a Post
+        </button>
+    </a>
+{% endblock %}
