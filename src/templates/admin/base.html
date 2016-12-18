@@ -60,9 +60,14 @@
     <!-- Header -->
     {% block admin_header %}
     <div id="header">
+    <!-- Django Administration "title" -->
         <div id="branding">
         {% block branding %}{% endblock %}
         </div>
+        <!--/ Django Administration "title" -->
+
+
+        <!-- WELCOME, AHMED. VIEW SITE / CHANGE PASSWORD / LOG OUT -->
         {% block usertools %}
         {% if has_permission %}
         <div id="user-tools">
@@ -88,10 +93,16 @@
         </div>
         {% endif %}
         {% endblock %}
+        <!--/ WELCOME, AHMED. VIEW SITE / CHANGE PASSWORD / LOG OUT -->
+
+
         {% block nav-global %}{% endblock %}
     </div>
     {% endblock admin_header %}
     <!-- END Header -->
+
+
+    <!-- Sub Header -->
     {% block breadcrumbs %}
     <div class="breadcrumbs">
     <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
@@ -100,6 +111,8 @@
     {% endblock %}
     {% endif %}
 
+
+<!-- The portfolio "Portfolio object" was deleted successfully. -->
     {% block messages %}
         {% if messages %}
         <ul class="messagelist">{% for message in messages %}
@@ -107,13 +120,20 @@
         {% endfor %}</ul>
         {% endif %}
     {% endblock messages %}
+<!-- /The portfolio "Portfolio object" was deleted successfully. -->
+
 
     <!-- Content -->
     <div id="content" class="{% block coltype %}colM{% endblock %}">
         {% block pretitle %}{% endblock %}
         {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
         {% block content %}
+
+        <!-- Add objects -->
         {% block object-tools %}{% endblock %}
+        <!-- /Add objects -->
+
+        
         {{ content }}
         {% endblock %}
         {% block sidebar %}{% endblock %}
